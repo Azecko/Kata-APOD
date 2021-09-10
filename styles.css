@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .apod-title {
     text-align: center;
     font-family: 'Raleway', sans-serif;
@@ -12,9 +16,71 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 80%;
+    height: auto;
 }
 
 .apod-description {
     font-family: 'Raleway', sans-serif;
     text-align: center;
+}
+
+/* .right-arrow {
+    position: absolute;
+    top: 370px;
+    left: 1520px;
+    width: 240px;
+} */
+
+.wrapper{
+    min-height: 100vh;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+  }
+  .header, .footer{
+    height: 50px;
+    background: #666;
+    color: #fff;
+  }
+  .content {
+    display: flex;
+    flex: 1;
+    background: #999;
+    color: #000; 
+  }
+  .columns{
+    display: flex;
+    flex:1;
+  }
+  .main{
+    flex: 1;
+    order: 2;
+    background: #eee;
+    padding: 0 10%;
+  }
+  .sidebar-first{
+    width: 15%;
+    background: #ccc;
+    order: 1;
+  }
+  .sidebar-second{ 
+    width: 15%;
+    order: 3;
+    background: #ddd;
+  }
+
+  .arrow { 
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+  .left-arrow {
+    transform: rotate(180deg);
+  }
+  /* https://stackoverflow.com/a/7310398 */
+  .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
