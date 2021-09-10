@@ -55,11 +55,20 @@ body {
     display: flex;
     flex-direction: column;
   }
-  .header, .footer{
+  .header {
     height: 50px;
-    background: rgb(150, 150, 150);
-    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0 20px;
   }
+
+  .footer {
+    height: 20px;
+    font-family: monospace;
+    white-space: pre;
+    margin: 0 5px;
+   }
   .content {
     display: flex;
     flex: 1;
