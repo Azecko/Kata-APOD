@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+.result {
+  height: auto;
+}
+
 .apod-title {
     text-align: center;
     font-family: 'Raleway', sans-serif;
@@ -20,10 +24,22 @@ body {
     height: auto;
 }
 
+.apod-video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: auto;
+}
+
 .apod-description {
     font-family: 'Raleway', sans-serif;
     text-align: center;
 }
+
+.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+
+.video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 /* .right-arrow {
     position: absolute;
@@ -34,19 +50,19 @@ body {
 
 .wrapper{
     min-height: 100vh;
-    background: #ccc;
+    background: #eee;
     display: flex;
     flex-direction: column;
   }
   .header, .footer{
     height: 50px;
-    background: #666;
+    background: rgb(150, 150, 150);
     color: #fff;
   }
   .content {
     display: flex;
     flex: 1;
-    background: #999;
+    background: #eee;
     color: #000; 
   }
   .columns{
@@ -61,13 +77,15 @@ body {
   }
   .sidebar-first{
     width: 15%;
-    background: #ccc;
+    background: #eee;
     order: 1;
+    height: 100vh;
   }
   .sidebar-second{ 
     width: 15%;
     order: 3;
-    background: #ddd;
+    background: #eee;
+    height: 100vh;
   }
 
   .arrow { 
