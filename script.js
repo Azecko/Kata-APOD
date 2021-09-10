@@ -1,29 +1,41 @@
 function getapod(date) {
+  let APOD_API_KEY = localStorage.getItem('APOD_API_KEY') || 'DEMO_KEY'
   $.get(
-    `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`,
+    `https://api.nasa.gov/planetary/apod?api_key=${APOD_API_KEY}&date=${date}`,
     function (data) {
+
       $(document).prop("title", `APOD: ${data.title}`);
       let APODHTML = `<h1 class="apod-title">${data.title}</h1>
                     <p class="apod-date">${data.date}</p>`;
 
       if (data.media_type == "image") {
         APODHTML += `<a href=${data.hdurl} target="_blank">
-          <img src=${data.url} class="apod-image">
-      </a>`;
+            <img src=${data.url} class="apod-image">
+        </a>`;
       } else if (data.media_type == "video") {
         APODHTML += `<div class="video-container">
           <iframe src=${data.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>`;
       } else {
-        console.error("Désolé, je ne sais faire que des images et des vidéos");
+        console.error("Sorry, I can only show images and videos.");
       }
 
       APODHTML += `<p class="apod-description">${data.explanation}</p>`;
-
       APODHTML += `<p class="apod-copyright">copyright: ${ (data.copyright) ? data.copyright : 'NASA public domain' }</p>`
+
       $(".result").html(APODHTML);
     }
-  );
+  )
+  .fail(function() {
+    let APOD_API_KEY = localStorage.getItem('APOD_API_KEY')
+
+    $(".result").html(`NASA API KEY: <input id="APIKEYinput" type="text" placeholder="Please input your NASA API KEY here" value="${APOD_API_KEY ?? ''}" /><button id="setAPIKey">OK</button>`)
+
+    $("#setAPIKey").click(function () {
+      localStorage.setItem('APOD_API_KEY', $("#APIKEYinput").val());
+      location.reload();
+    })
+  })
 }
 
 function manageclick() {
