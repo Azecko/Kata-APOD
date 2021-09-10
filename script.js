@@ -17,7 +17,10 @@ function getapod(date) {
       } else {
         console.error("Désolé, je ne sais faire que des images et des vidéos");
       }
+
       APODHTML += `<p class="apod-description">${data.explanation}</p>`;
+
+      APODHTML += `<p class="apod-copyright">copyright: ${ (data.copyright) ? data.copyright : 'NASA public domain' }</p>`
       $(".result").html(APODHTML);
     }
   );

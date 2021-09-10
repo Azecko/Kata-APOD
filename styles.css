@@ -32,7 +32,8 @@ body {
   height: auto;
 }
 
-.apod-description {
+.apod-description, 
+.apod-copyright {
     font-family: 'Raleway', sans-serif;
     text-align: center;
 }
