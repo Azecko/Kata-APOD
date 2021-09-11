@@ -3,9 +3,8 @@ body {
 }
 
 .result {
-  height: auto;
+  height: 100%;
 }
-
 .apod-title {
     text-align: center;
     font-family: 'Raleway', sans-serif;
@@ -61,6 +60,7 @@ body {
     font-weight: bold;
     font-size: 2em;
     margin: 0 20px;
+    text-align: right;
   }
 
   .footer {
@@ -102,6 +102,7 @@ body {
     width: 100%;
     height: auto;
     vertical-align: middle;
+    display: none;
   }
   .left-arrow {
     transform: rotate(180deg);
@@ -111,4 +112,16 @@ body {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-}
+  }
+
+  .result input, #setAPIKey{
+      margin:auto;
+      display:flex;
+      justify-content: center;
+  }
+
+  .getonehere {
+    font-family: monospace;
+    white-space: pre;
+    text-align: center;
+  }

@@ -1,5 +1,5 @@
 function getapod(date) {
-  let APOD_API_KEY = localStorage.getItem('APOD_API_KEY') || 'DEMO_KEY'
+  let APOD_API_KEY = localStorage.getItem('APOD_API_KEY') || ''
   $.get(
     `https://api.nasa.gov/planetary/apod?api_key=${APOD_API_KEY}&date=${date}`,
     function (data) {
@@ -23,16 +23,18 @@ function getapod(date) {
       APODHTML += `<p class="apod-description">${data.explanation}</p>`;
       APODHTML += `<p class="apod-copyright">copyright: ${ (data.copyright) ? data.copyright : 'NASA public domain' }</p>`
 
+      $(".arrow").css("display", "initial")
       $(".result").html(APODHTML);
     }
   )
   .fail(function() {
+    $(".arrow").css("display", "none")
     let APOD_API_KEY = localStorage.getItem('APOD_API_KEY')
 
-    $(".result").html(`NASA API KEY: <input id="APIKEYinput" type="text" placeholder="Please input your NASA API KEY here" value="${APOD_API_KEY ?? ''}" /><button id="setAPIKey">OK</button>`)
+    $(".result").html(`<input class="APIKEYinput" type="text" placeholder="Valid APOD api key here"/><button id="setAPIKey">OK</button><p class="getonehere">Don't have one ? You can get one <a href="https://api.nasa.gov/" target="_blank">here</a></p>`)
 
     $("#setAPIKey").click(function () {
-      localStorage.setItem('APOD_API_KEY', $("#APIKEYinput").val());
+      localStorage.setItem('APOD_API_KEY', $(".APIKEYinput").val());
       location.reload();
     })
   })
